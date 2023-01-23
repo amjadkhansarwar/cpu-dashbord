@@ -1,3 +1,3 @@
-import Watch from './Watch'
+import Trafick from './Watch'
 
-export default Watch
+export default Trafick
