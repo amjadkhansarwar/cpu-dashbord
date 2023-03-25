@@ -2,20 +2,3 @@
   text-align: center;
   margin: 0px 16px;
 }
-.Body {
-  display: flex;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

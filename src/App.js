@@ -9,14 +9,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="Body">
-        <Watch />
-        <Weather />
-        <Trafick />
-      </div>
+      <Watch />
+      <Weather />
+      <Trafick />
       <Footer />
     </div>
-  );
+  )
 }
 
 export default App;
