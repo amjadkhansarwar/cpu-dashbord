@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import theme from '../../theme'
-import Images  from '../../assets'
 
 export const Container = styled.div`  
   background-color: ${theme.black};
