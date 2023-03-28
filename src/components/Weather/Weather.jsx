@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './Weather.css';
+import * as API from '../../api/api';
 
-const apiKey = 'a03d5359fd3cca8ba8a852c9e86b749c';
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=59.3293&lon=18.0686&appid=${apiKey}`;
+
+
+/* const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=59.3293&lon=18.0686&appid=${apiKey}`; */
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
 
-  useEffect(() => {
-    async function getWeatherData() {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
+  useEffect( () => {
+     const data = async ()  => {
+      const data = await API.GetWeather();
+      console.log(data);
       setWeatherData(data);
     }
-    getWeatherData();
+    data();
   }, []);
 
   if (!weatherData) {
@@ -23,7 +26,7 @@ const Weather = () => {
   const weatherIconUrl = 'https://openweathermap.org/img/w/';
   const weatherIcon = weatherData.weather[0].icon;
   const weatherLocation = weatherData.name;
-  const weatherTemperature = weatherData.main.temp;
+  const weatherTemperature = weatherData.main.temp - 273.15;
   const weatherDescription = weatherData.weather[0].description;
 
   function unixTimestampToTime(unixTimestamp) {
@@ -51,7 +54,7 @@ const Weather = () => {
           </div>
           <div className="weather-details">
             <div className="weather-location">{weatherLocation}</div>
-            <div className="weather-temperature">{`${weatherTemperature}°C`}</div>
+            <div className="weather-temperature">{`${Math.round(weatherTemperature)}°C`}</div>
             <div className="weather-description">{weatherDescription}</div>
             <div className="weather-description">Visibility: {weatherData.visibility}</div>
             <div className="weather-description">Sun Rise: {unixTimestampToTime(weatherData.sys.sunrise)}</div>
