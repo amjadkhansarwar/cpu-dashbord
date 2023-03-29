@@ -13,7 +13,6 @@ const Weather = () => {
   useEffect( () => {
      const data = async ()  => {
       const data = await API.GetWeather();
-      console.log(data);
       setWeatherData(data);
     }
     data();

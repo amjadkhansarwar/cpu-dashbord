@@ -1,4 +1,4 @@
-import Weather from './Weather'
+import Trafic from './Trafic'
 
 
-export default Weather
+export default Trafic
